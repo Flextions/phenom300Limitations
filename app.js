@@ -1,9 +1,5 @@
 // Questions & Answer Data is added below
-data = [ // Elements include a question and answer
-  // s = section
-  // q = question
-  // a = answer
-  // r = reference
+data = [ // Elements include s = section,  q = question, a = answer, r = reference
   {s:"Weights <b>Pre Mod</b> SB 505-00-0008", q:"Max Ramp (MRW)", a:18078, r:"AFM Section 2"},
   {s:"Airspeeds", q:"VLO KIAS", a:250, r:"AFM Section 2"},
   {s:"Airspeeds", q:"VLE KIAS", a:250, r:"AFM Section 2"},
