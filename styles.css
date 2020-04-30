@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Bangers');
-/* CSS Mini-mini Reset */
 
+/* CSS Mini-mini Reset */
 html, body, div, label
 {
   margin: 0;
@@ -17,6 +17,9 @@ body {
   color: #E0E6F8;
 }
 
+
+/* Custom CSS */
+
 h1,h2 {
   text-align: center;
 }
@@ -25,6 +28,7 @@ b {
   font-size: 1.4em;
   text-decoration: underline overline;
 }
+
 #work_area {
   margin: 0px, 30px;
   padding: 20px;
@@ -35,4 +39,28 @@ b {
 
 #question_box {
   font-size: 2em;
+}
+
+#progress-bar-container {
+  font-size: 34px;
+  position: relative;
+  left: 20%;
+  width: 60%;
+  height: 40px;
+  border-radius: 8px;
+  background:lightgrey;
+  overflow: hidden;
+}
+
+#timer {
+  position: absolute;
+  right: 5px;
+}
+
+#progress-bar {
+  background: green;
+  width: 40%;
+  height: 100%;
+  color: lightgrey;
+  text-align: center;
 }

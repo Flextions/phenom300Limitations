@@ -95,6 +95,9 @@ const question_ref = document.getElementById('question_ref');
 const info_box = document.getElementById('info');
 
 function start_timer(){
+  //hide title at top of page
+  //document.getElementById('quiz-header').style.visibility = "hidden";
+
   // Start the timer
   var start = new Date().getTime(),
       elapsed = '0.0';
@@ -103,10 +106,9 @@ function start_timer(){
   {
       var time = new Date().getTime() - start;
 
-      elapsed = Math.floor(time / 100) / 10;
-      if(Math.round(elapsed) == elapsed) { elapsed += '.0'; }
+      elapsed = Math.floor(time / 1000);
 
-      document.getElementById('timer').innerHTML = elapsed;
+      document.getElementById('timer').innerHTML = elapsed + " seconds";
 
   }, 100);
 }
@@ -142,6 +144,11 @@ answer_box.addEventListener("keyup", function(event){
 });
 
 function ask_question(n){
+  var percentage_done = parseInt(i/last_question*100) + "%";
+
+  document.getElementById('progress-bar').style.width = percentage_done;
+  document.getElementById('progress-bar').innerHTML = percentage_done;
+
   document.getElementById('work_area').style.backgroundColor = '';  //reset background after incorrect
   question_section.innerHTML = data[n].s; // write the question section to the page
   question_box.innerHTML = data[n].q; // write the question to the page
@@ -169,6 +176,9 @@ function check_answer(my_answer){
   }
 
 function end_quiz(){
+  //unhide title at top of page
+  //document.getElementById('quiz-header').style.visibility = "visible";
+
   let end_time = document.getElementById('timer').innerHTML;
   info_box.innerHTML = "You have finished the quiz in " + end_time + " seconds.";
 }
