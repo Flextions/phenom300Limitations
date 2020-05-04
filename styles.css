@@ -13,7 +13,8 @@ img { border: 0; }
 
 body {
   background-color: #2E2E2E;
-  font-family: 'Bangers', cursive;
+  /* font-family: 'Bangers', cursive; */
+  font-size: 2vw;
   color: #E0E6F8;
 }
 
@@ -25,11 +26,61 @@ h1,h2 {
 }
 
 b {
-  font-size: 1.4em;
   text-decoration: underline overline;
 }
 
-#work_area {
+.main-display {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: tomato; /* temporary for reference */
+  width: 100%;
+  height: 400px;
+}
+
+/* Style the navigation menu
+https://www.w3schools.com/howto/howto_css_topnav_equal_width.asp */
+.navbar {
+  width: 100%;
+  overflow: auto;
+}
+
+/* Navigation links */
+.navbar a {
+  float: left;
+  padding: 0px;
+  color: white;
+  text-decoration: none;
+  width: 33%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+  text-align: center; /* If you want the text to be centered */
+}
+
+/* Add a background color on mouse-over */
+.navbar a:hover {
+  background-color: #000;
+}
+
+
+/* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left; /* If you want the text to be left-aligned on small screens */
+  }
+}
+
+#quiz-instructions{
+  visibility: hidden;
+}
+
+#high-score {
+  visibility: hidden;
+}
+
+#quiz_container {
+  visibility: hidden;
   margin: 0px, 30px;
   padding: 20px;
   border-style: solid;
@@ -38,6 +89,10 @@ b {
 }
 
 #question_box {
+  font-size: 2em;
+}
+
+#answer_box {
   font-size: 2em;
 }
 

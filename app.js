@@ -94,10 +94,38 @@ const answer_box = document.getElementById('answer_box');
 const question_ref = document.getElementById('question_ref');
 const info_box = document.getElementById('info');
 
-function start_timer(){
-  //hide title at top of page
-  //document.getElementById('quiz-header').style.visibility = "hidden";
+function show_instructions(){
+  document.getElementById('quiz-title').style.visibility = "hidden";
+  document.getElementById('quiz-instructions').style.visibility = "visible";
+}
 
+function close_instructions(){
+  document.getElementById('quiz-instructions').style.visibility = "hidden";
+  document.getElementById('quiz-title').style.visibility = "visible";
+}
+
+function show_high_score(){
+  document.getElementById('quiz-title').style.visibility = "hidden";
+  document.getElementById('high-score').style.visibility = "visible";
+}
+
+function close_high_score(){
+  document.getElementById('high-score').style.visibility = "hidden";
+  document.getElementById('quiz-title').style.visibility = "visible";
+}
+
+function GO(){
+  document.getElementById('quiz-title').style.visibility = "hidden";
+  document.getElementById('quiz_container').style.visibility = "visible";
+  start_timer();
+}
+
+function quit_quiz(){
+  document.getElementById('quiz_container').style.visibility = "hidden";
+  document.getElementById('quiz-title').style.visibility = "visible";
+}
+
+function start_timer(){
   // Start the timer
   var start = new Date().getTime(),
       elapsed = '0.0';
@@ -134,7 +162,9 @@ answer_box.addEventListener("keyup", function(event){
         }
     }
     else {
-      document.getElementById('work_area').style.backgroundColor = 'rgba(255, 165, 0, 0.8)';
+      // If answer is incorrect, change the background color.
+      document.getElementById('quiz_container').style.backgroundColor = 'rgba(255, 165, 0, 0.8)';
+      // If wrong more than once, show the answer.
       if (strikes > 1){
         info_box.innerHTML = "The answer is: " + data[i].a;
       }
@@ -149,7 +179,7 @@ function ask_question(n){
   document.getElementById('progress-bar').style.width = percentage_done;
   document.getElementById('progress-bar').innerHTML = percentage_done;
 
-  document.getElementById('work_area').style.backgroundColor = '';  //reset background after incorrect
+  document.getElementById('quiz_container').style.backgroundColor = '';  //reset background after incorrect
   question_section.innerHTML = data[n].s; // write the question section to the page
   question_box.innerHTML = data[n].q; // write the question to the page
   question_ref.innerHTML = data[n].r; // write the reference to the page
