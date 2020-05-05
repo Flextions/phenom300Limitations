@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Phenom 300 Limitations Quiz</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="gauge.min.js"></script>
   </head>
 
   <body>
@@ -12,11 +13,9 @@
         <h1>10 Minute Quiz</h1>
         <h2>Phenom 300 Limitations</h2>
         <h2>Just the numbers!</h2>
-        <div class="navbar">
-          <a href="#" onclick="show_instructions()">Instructions</a>
-          <a href="#" onclick="show_high_score()">Hi Score</a>
-          <a href="#" onclick="GO()">GO!</a>
-        </div>
+          <button onclick="show_instructions()">Instructions</button>
+          <button onclick="show_high_score()">Hi Score</button>
+          <button onclick="GO()">GO!</button>
       </div>
 
       <div id="quiz-instructions" class="main-display" style="visibility: hidden">
@@ -24,7 +23,7 @@
         <p>Complete the quiz within 10 minutes.
         <p>If you are sucessful you should</br>
           continue to try to improve on your best time.<br>
-          <div class="navbar"><a href="#" onclick="close_instructions()">close instructions</a></div>
+          <button onclick="close_instructions()">close instructions</button>
       </div>
 
     <div id="high-score" class="main-display" style="visibility: hidden">
@@ -33,21 +32,22 @@
         The best score that you have recorded</br>
         on this device is:
         <span id="high-score"></span>
-        <div class="navbar"><a href="#" onclick="close_high_score()">close</a></div>
+        <button onclick="close_high_score()">close</button>
 
     </div>
 
     <div  id="quiz_container" class="main-display">
-      <div id="progress-bar-container">
-        <div id="timer">Answer first question to begin timer</div>
-        <div id="progress-bar">??%</div>
+      <div id="gauge" class="gauge-container">
+        <div id="percent-box" class="percent-container">
+        PCT%
+        </div>
       </div>
       <div id="question_section">Section Head goes here</div>
       <div id="question_box">question goes here</div>
       <input type="number" id="answer_box" size="8" tabindex="0">
       <div  id="info">type answer and press ENTER</div>
       <div  id="question_ref">reference goes here</div>
-      <div class="navbar"><a href="#" onclick="quit_quiz()">Quit!</a></div>
+      <button onclick="quit_quiz()">Quit!</button>
     </div>
 
     <script src="app.js"></script>

@@ -94,6 +94,17 @@ const answer_box = document.getElementById('answer_box');
 const question_ref = document.getElementById('question_ref');
 const info_box = document.getElementById('info');
 
+/* GaugeJS -----------------------------------------
+Credit and thanks go to: https://github.com/naikus/svg-gauge */
+var gauge = Gauge(
+  document.getElementById("gauge"), {
+    max: 600,
+    dialStartAngle: 135,
+    dialEndAngle: 45,
+    value: 0
+  }
+);
+
 function show_instructions(){
   document.getElementById('quiz-title').style.visibility = "hidden";
   document.getElementById('quiz-instructions').style.visibility = "visible";
@@ -136,7 +147,7 @@ function start_timer(){
 
       elapsed = Math.floor(time / 1000);
 
-      document.getElementById('timer').innerHTML = elapsed + " seconds";
+      gauge.setValueAnimated(elapsed, 1);
 
   }, 100);
 }
@@ -176,8 +187,7 @@ answer_box.addEventListener("keyup", function(event){
 function ask_question(n){
   var percentage_done = parseInt(i/last_question*100) + "%";
 
-  document.getElementById('progress-bar').style.width = percentage_done;
-  document.getElementById('progress-bar').innerHTML = percentage_done;
+  document.getElementById('percent-box').innerHTML = percentage_done;
 
   document.getElementById('quiz_container').style.backgroundColor = '';  //reset background after incorrect
   question_section.innerHTML = data[n].s; // write the question section to the page
