@@ -207,11 +207,6 @@ function check_answer(my_answer){
       strikes++;
       result = "incorrect";
     }
-    // if timer not already, start timer
-    if ( timer_started_flag == false ){
-      start_timer();
-      timer_started_flag = true;
-    }
     return result;
   }
 
